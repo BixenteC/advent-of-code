@@ -1,18 +1,24 @@
 """
 """
 
+
 def part_one():
+        """--- Part Two ---"""
     pass
 
+
 def part_two():
+    """--- Part Two ---"""
     pass
 
 
 def main():
+    """Main"""
+
     day = ""
-    print("-"*len(day))
+    print("-" * len(day))
     print(day)
-    print("-"*len(day))
+    print("-" * len(day))
 
     print("--- Part One ---")
     part_one()
