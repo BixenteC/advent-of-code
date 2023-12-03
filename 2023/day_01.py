@@ -4,12 +4,11 @@
 
 import re
 
-"""
---- Part One ---
-"""
-def part_one():
 
-    with open("day_01_input.txt") as f:
+def part_one():
+    """--- Part One ---"""
+
+    with open("day_01_input.txt", encoding="utf-8") as f:
         lines = f.readlines()
 
     sum_cal_vals = 0
@@ -18,15 +17,13 @@ def part_one():
         calibration_val = f"{numbers[0]}{numbers[-1]}"
         sum_cal_vals += int(calibration_val)
 
-    print("Sum: ", sum_cal_vals) 
+    print("Sum: ", sum_cal_vals)
 
 
-"""
---- Part Two ---
-"""
 def part_two():
+    """--- Part Two ---"""
 
-    with open("day_01_input.txt") as f:
+    with open("day_01_input.txt", encoding="utf-8") as f:
         lines = f.readlines()
 
     numbers_dict = {
@@ -36,36 +33,39 @@ def part_two():
         "four": 4,
         "five": 5,
         "six": 6,
-        "seven": 7, 
-        "eight": 8, 
-        "nine": 9
+        "seven": 7,
+        "eight": 8,
+        "nine": 9,
     }
 
     sum_cal_vals = 0
     for line in lines:
-        
         numbers = ""
-        for i in range(len(line)):
-            if line[i].isdigit():
-                numbers += line[i]
+        for i, s in enumerate(line):
+            if s.isdigit():
+                numbers += s
             else:
-                for number in numbers_dict.keys():
-                    if number in line[i:] and line[i:].index(number) == 0:
-                        numbers += str(numbers_dict[number])
-        
+                for number_word, number in numbers_dict.items():
+                    if number_word in line[i:] and line[i:].index(number_word) == 0:
+                        numbers += str(number)
+
         calibration_val = f"{numbers[0]}{numbers[-1]}"
         sum_cal_vals += int(calibration_val)
 
-    print("Sum: ", sum_cal_vals)           
+    print("Sum: ", sum_cal_vals)
 
 
 def main():
+    """Main"""
+
     day = "--- Day 1: Trebuchet?! ---"
-    print("-"*len(day))
+    print("-" * len(day))
     print(day)
-    print("-"*len(day))
+    print("-" * len(day))
+
     print("--- Part One ---")
     part_one()
+
     print("--- Part Two ---")
     part_two()
 
