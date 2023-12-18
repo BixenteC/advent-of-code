@@ -1,10 +1,17 @@
 """
 """
 
+import os
+
 
 def part_one():
-        """--- Part Two ---"""
-    pass
+    """--- Part One ---"""
+
+    # Import the input
+    file_name = os.path.basename(__file__).split(".")[0]
+    with open(f"{file_name}_input.txt", encoding="utf-8") as f:
+        lines = f.readlines()
+    lines = [line.rstrip("\n") for line in lines]
 
 
 def part_two():
